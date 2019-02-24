@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
-
+//import './App.css';
 import Title from '../src/components/Title';
 import Form from '../src/components/Form';
 import WeatherData from '../src/components/WeatherData';
@@ -36,13 +35,19 @@ class App extends Component {
       })
     } else if (weatherData.cod === "404") {
         this.setState({
-          temperature: "", city: "", country: "", description: "",
-          errorMsg: "No cities found by that name."
+          temperature: undefined,
+          city: undefined,
+          country: undefined,
+          description: undefined,
+          errorMsg: "No cities found by that name, please try again."
       })
     } else {
       this.setState({
-        temperature: "", city: "", country: "", description: "",
-        errorMsg: "Please type in a city."
+        temperature: undefined,
+        city: undefined,
+        country: undefined,
+        description: undefined,
+        errorMsg: "Please type in a name of city."
     })}
 
   }
@@ -50,16 +55,28 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Title />
-        <Form loadWeatherData={this.getWeatherData} />
-        <WeatherData
-          temperature={this.state.temperature}
-          city={this.state.city}
-          country={this.state.country}
-          humidity={this.state.humidity}
-          description={this.state.description}
-          errorMsg={this.state.errorMsg}
-        />
+        <div className="wrapper">
+          <div className="main">
+            <div className="container">
+              <div className="row">
+                <div className="col-xs-5 title-container">
+                  <Title />
+                </div>
+                <div className="col-xs-7 form-container">
+                <Form loadWeatherData={this.getWeatherData} />
+                <WeatherData
+                  temperature={this.state.temperature}
+                  city={this.state.city}
+                  country={this.state.country}
+                  humidity={this.state.humidity}
+                  description={this.state.description}
+                  errorMsg={this.state.errorMsg}
+                />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
