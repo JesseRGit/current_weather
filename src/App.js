@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import Title from '../src/components/Title';
 import Form from '../src/components/Form';
 import WeatherData from '../src/components/WeatherData';
+import List from '../src/components/List';
 
 const API_KEY = process.env.REACT_APP_WEATHER_API_KEY;
 
@@ -46,11 +47,23 @@ class App extends Component {
           return;
       }
       console.log("City with country found, with data:", weatherData)
-    }
-    else if (city && weatherData.cod == "200") {
+      this.setState({
+          temperature: weatherData.main.temp,
+          city: weatherData.name,
+          country: weatherData.sys.country,
+          description: weatherData.weather[0].description,
+          errorMsg: ""
+      })
+    } else if (city && weatherData.cod == "200") {
       console.log("City found, with data:", weatherData)
-    }
-    else if (weatherData.cod == "404") {
+      this.setState({
+          temperature: weatherData.main.temp,
+          city: weatherData.name,
+          country: weatherData.sys.country,
+          description: weatherData.weather[0].description,
+          errorMsg: ""
+      })
+    } else if (weatherData.cod == "404") {
       this.setState({
           temperature: undefined,
           city: undefined,
@@ -58,7 +71,6 @@ class App extends Component {
           description: undefined,
           errorMsg: "No city found with that name, please try again."
         })
-        return;
     } else {
       this.setState({
           temperature: undefined,
@@ -67,18 +79,11 @@ class App extends Component {
           description: undefined,
           errorMsg: "Seach failed."
         })
-      return;
     }
+  }
 
-    // State gets set if no execptional scenarios are found
-    console.log("Setting state");
-    this.setState({
-        temperature: weatherData.main.temp,
-        city: weatherData.name,
-        country: weatherData.sys.country,
-        description: weatherData.weather[0].description,
-        errorMsg: ""
-    })
+  saveWeatherData (cityId) {
+    console.log("saveWeatherDataTriggered and saved city with id:", cityId);
   }
 
   render() {
@@ -100,6 +105,12 @@ class App extends Component {
                   description={this.state.description}
                   errorMsg={this.state.errorMsg}
                 />
+                </div>
+                <div className="col-xs-7 list-container">
+                  <button onClick={() =>{ this.saveWeatherData(this.state.city); }}>
+                    Bookmark current city
+                  </button>
+                  <List />
                 </div>
               </div>
             </div>
