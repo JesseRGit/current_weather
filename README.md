@@ -1,5 +1,3 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
 # weather_data_visualizer
 
 ## Functions:
@@ -8,4 +6,10 @@ search by city name and country (for scenarios with same named cities from diffe
 
 ## Handles ecxeptions:
 viable city name but non-matching country name -> shows the city's info but mentions that the country wasn't matching 
+
+### Uses
+[Create React App](https://github.com/facebook/create-react-app) - as base   
+[Bootstrap 4.3.1](https://getbootstrap.com/) - for visuals  
+[OpenWeatherMap](https://openweathermap.org/) - open weather API data
+
 
