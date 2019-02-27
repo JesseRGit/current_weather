@@ -2,11 +2,19 @@
 Website made with ReactJS that visualises weather data from user's desired city and lets you save them.  
 
 ## Setup:
+
+    #Git clone
+    git clone https://github.com/JesseRGit/weather_data_visualizer.git
+    
     #Install dependencies   
     npm install
+    or
+    yarn install
 
     #Start   
     npm start
+    or 
+    yarn start
     
     #View locally   
     http://localhost:3000/  
