@@ -5,11 +5,13 @@ import Form from '../src/components/Form';
 import WeatherData from '../src/components/WeatherData';
 import List from '../src/components/List';
 
-const API_KEY = process.env.REACT_APP_WEATHER_API_KEY;
+//const API_KEY = process.env.REACT_APP_WEATHER_API_KEY;
+const API_KEY = "189c7531f7a73a421a3c43ba1fc96313";
 
 class App extends Component {
 
   state = {
+    id: undefined,
     temperature: undefined,
     city: undefined,
     country: undefined,
@@ -38,6 +40,7 @@ class App extends Component {
         fetchedData = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&APPID=${API_KEY}`);;
         weatherData = await fetchedData.json();
         this.setState({
+            id: weatherData.id,
             temperature: weatherData.main.temp,
             city: weatherData.name,
             country: weatherData.sys.country,
@@ -48,6 +51,7 @@ class App extends Component {
       }
       console.log("City with country found, with data:", weatherData)
       this.setState({
+          id: weatherData.id,
           temperature: weatherData.main.temp,
           city: weatherData.name,
           country: weatherData.sys.country,
@@ -57,14 +61,16 @@ class App extends Component {
     } else if (city && weatherData.cod == "200") {
       console.log("City found, with data:", weatherData)
       this.setState({
+          id: weatherData.id,
           temperature: weatherData.main.temp,
           city: weatherData.name,
           country: weatherData.sys.country,
           description: weatherData.weather[0].description,
           errorMsg: ""
       })
-    } else if (weatherData.cod == "404") {
+    } else if (weatherData.cod === "404") {
       this.setState({
+          id: undefined,
           temperature: undefined,
           city: undefined,
           country: undefined,
@@ -73,6 +79,7 @@ class App extends Component {
         })
     } else {
       this.setState({
+          id: undefined,
           temperature: undefined,
           city: undefined,
           country: undefined,
@@ -80,10 +87,6 @@ class App extends Component {
           errorMsg: "Seach failed."
         })
     }
-  }
-
-  saveWeatherData (cityId) {
-    console.log("saveWeatherDataTriggered and saved city with id:", cityId);
   }
 
   render() {
@@ -107,10 +110,14 @@ class App extends Component {
                 />
                 </div>
                 <div className="col-xs-7 list-container">
-                  <button onClick={() =>{ this.saveWeatherData(this.state.city); }}>
-                    Bookmark current city
-                  </button>
-                  <List />
+                  <List
+                    id={this.state.id}
+                    temperature={this.state.temperature}
+                    city={this.state.city}
+                    country={this.state.country}
+                    description={this.state.description}
+                    errorMsg={this.state.errorMsg}
+                  />
                 </div>
               </div>
             </div>
