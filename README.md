@@ -1,5 +1,5 @@
 # weather_data_visualizer
-
+Website made with ReactJS that visualises weather data from user's desired city and lets you save them.  
 
 ## Setup
     #Install dependencies   
