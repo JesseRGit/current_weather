@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-//import './App.css';
 import Title from '../src/components/Title';
 import Form from '../src/components/Form';
 import WeatherData from '../src/components/WeatherData';
@@ -31,12 +30,12 @@ class App extends Component {
     console.log("Cod value: ", weatherData.cod);
 
     // Handling expectional scenarios: search with city + country and failure scenarios
-    if (city && country && weatherData.cod == "200") {
+    if (city && country && weatherData.cod === 200) {
 
       fetchedData = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&units=metric&APPID=${API_KEY}`);;
       weatherData = await fetchedData.json();
 
-      if (weatherData.cod != "200") {
+      if (weatherData.cod !== 200) {
         fetchedData = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&APPID=${API_KEY}`);;
         weatherData = await fetchedData.json();
         this.setState({
@@ -58,7 +57,7 @@ class App extends Component {
           description: weatherData.weather[0].description,
           errorMsg: ""
       })
-    } else if (city && weatherData.cod == "200") {
+    } else if (city && weatherData.cod === 200) {
       console.log("City found, with data:", weatherData)
       this.setState({
           id: weatherData.id,
@@ -68,7 +67,7 @@ class App extends Component {
           description: weatherData.weather[0].description,
           errorMsg: ""
       })
-    } else if (weatherData.cod === "404") {
+    } else if (weatherData.cod === 404) {
       this.setState({
           id: undefined,
           temperature: undefined,
@@ -76,6 +75,15 @@ class App extends Component {
           country: undefined,
           description: undefined,
           errorMsg: "No city found with that name, please try again."
+        })
+    } else if (!city) {
+      this.setState({
+          id: undefined,
+          temperature: undefined,
+          city: undefined,
+          country: undefined,
+          description: undefined,
+          errorMsg: "Please enter a city name."
         })
     } else {
       this.setState({

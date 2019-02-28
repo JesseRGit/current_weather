@@ -62,7 +62,7 @@ body {
   border-left: solid #282828;
   height: 90vh;
   width: 40%;
-  padding-top: 10%;
+  padding-top: 5%;
   padding-left: 5%;
   padding-right: 5%;
   align-items: center;
@@ -128,7 +128,7 @@ button:active {
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding-top: 10%;
+  padding-top: 5%;
   padding-left: 5%;
   padding-right: 5%;
 }
@@ -168,13 +168,13 @@ button:active {
   width: 50%;
   font-size: 20px;
   font-weight: 200;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
 }
 
 .weather__key {
   color: #1E90FF;
   font-size: 40px;
-  padding: 80px 0 0 0;
+  padding: 50px 0 0 0;
   font-weight: 400;
 }
 
@@ -192,5 +192,6 @@ button:active {
   color: #f16051;
   font-size: 20px;
   letter-spacing: 1px;
+  padding: 20px 0 0 0;
   font-weight: 200;
 }
