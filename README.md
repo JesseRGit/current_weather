@@ -1,5 +1,5 @@
-# current_weather
-Website made with ReactJS that shows current weather from user's desired city and lets save them.  
+# Current Weather App  
+Website made with ReactJS, that lets user search cities by name to view the their prevailing weather, with ability to save wanted city to UI. 
 
 ## Setup:
 
