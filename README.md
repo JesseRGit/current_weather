@@ -1,4 +1,4 @@
-# weather_data_visualizer
+# current_weather
 Website made with ReactJS that visualises weather data from user's desired city and lets you save them.  
 
 ## Setup:
