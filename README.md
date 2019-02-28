@@ -4,7 +4,7 @@ Website made with ReactJS that shows current weather from user's desired city an
 ## Setup:
 
     #Git clone
-    git clone https://github.com/JesseRGit/weather_data_visualizer.git
+    git clone https://github.com/JesseRGit/current_weather.git
     
     #Install dependencies   
     npm install
