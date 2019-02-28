@@ -20,7 +20,7 @@ Website made with ReactJS that shows current weather from user's desired city an
     http://localhost:3000/  
     
 ## Functions:
-search by city name  
+search by city name
 search by city name and country (for scenarios with same named cities from different countries eg. see Manchester (UK) and Manchester (US))
 save city to list (stays till page refresh)
 
