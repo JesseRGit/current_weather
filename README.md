@@ -30,6 +30,9 @@ save city to list (stays till page refresh)
 ## Handles ecxeptions:
 viable city name but non-matching country name -> shows the city's weather but mentions that the country wasn't matching 
 
+## Preview:
+![currentweatherappreview](https://user-images.githubusercontent.com/35838078/53566256-54622f80-3b64-11e9-8923-bf6cadc62f33.png)  
+
 #### Uses:
 [Create React App](https://github.com/facebook/create-react-app) - as project's base   
 [Bootstrap 4.3.1](https://getbootstrap.com/) - for visuals  
