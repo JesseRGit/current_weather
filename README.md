@@ -23,9 +23,9 @@ Website made with ReactJS, that lets user search cities by name to view the thei
     http://localhost:3000/  
     
 ## Functions:
-search by city name  
-search by city name and country (for scenarios with same named cities from different countries eg. see Manchester (UK) and Manchester (US))  
-save city to list (stays till page refresh)
+-search by city name  
+-search by city name and country (for scenarios with same named cities from different countries eg. see Manchester (UK) and Manchester (US))  
+-save city to list (stays till page refresh)
 
 ## Handles ecxeptions:
 viable city name but non-matching country name -> shows the city's weather but mentions that the country wasn't matching 
